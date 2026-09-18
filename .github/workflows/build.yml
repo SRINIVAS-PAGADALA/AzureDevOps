@@ -1,4 +1,3 @@
-```yaml
 name: Build and Push Docker Image
 
 on:
@@ -33,4 +32,3 @@ jobs:
 
       - name: Push Docker image to ACR
         run: docker push cinumaacr1.azurecr.io/cinema-app:latest
-```
