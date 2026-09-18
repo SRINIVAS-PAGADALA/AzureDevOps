@@ -1,4 +1,3 @@
-```yaml
 name: Build Docker Image
 
 on:
@@ -16,4 +15,3 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t cinema-app ./app
-```
