@@ -1,5 +1,5 @@
 ```yaml
-name: My First CI Pipeline
+name: Build Docker Image
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  my-first-job:
+  build:
     runs-on: ubuntu-latest
 
     steps:
