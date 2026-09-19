@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="dashboard">
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">Local weather guide</p>
+        <h1>Weather Dashboard</h1>
+        <p class="intro">Check a sample city's current weather and five-day outlook.</p>
+      </div>
+
+      <!-- The search form lets users choose one of the sample cities. -->
+      <form id="search-form" class="search-form">
+        <label for="city-search">Search city</label>
+        <div class="search-controls">
+          <input id="city-search" name="city" type="search" placeholder="Try Seattle" autocomplete="off">
+          <button type="submit">Search</button>
+        </div>
+      </form>
+    </header>
+
+    <p id="search-message" class="search-message" role="status" aria-live="polite"></p>
+
+    <section class="current-weather" aria-labelledby="current-weather-heading">
+      <div class="current-summary">
+        <p class="section-label">Current weather</p>
+        <h2 id="current-weather-heading">Seattle, WA</h2>
+        <p id="weather-condition" class="condition">Partly cloudy</p>
+        <p id="current-temperature" class="temperature">58&deg;</p>
+      </div>
+      <div class="weather-icon" id="weather-icon" aria-hidden="true">&#9925;</div>
+      <div class="weather-details">
+        <div class="detail">
+          <span class="detail-label">Humidity</span>
+          <strong id="humidity">72%</strong>
+        </div>
+        <div class="detail">
+          <span class="detail-label">Wind speed</span>
+          <strong id="wind-speed">8 mph</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="forecast-section" aria-labelledby="forecast-heading">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Plan ahead</p>
+          <h2 id="forecast-heading">5-day forecast</h2>
+        </div>
+        <p class="forecast-note">Sample data for learning</p>
+      </div>
+      <div id="forecast-list" class="forecast-list"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
