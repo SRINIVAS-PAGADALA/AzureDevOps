@@ -35,3 +35,12 @@ jobs:
 
       - name: Push Docker image to ACR
         run: docker push weatheracr1.azurecr.io/weather-dashboard:latest
+
+      - name: Create artifact
+        run: echo "Weather Dashboard build completed" > build-info.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: weather-dashboard-build
+          path: build-info.txt
