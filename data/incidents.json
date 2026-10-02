@@ -1,0 +1,19 @@
+[
+  {
+    "id": "4e12f27d-72d4-4e2d-9bf9-529281ec0ccb",
+    "title": "Application test incident",
+    "description": "Testing the incident creation workflow",
+    "severity": "Medium",
+    "owner": "SRINIVAS PAGADALA",
+    "status": "Investigating",
+    "comments": [
+      {
+        "id": "91c01d23-910e-4f0c-9b71-81b7edd37468",
+        "text": "Testing incident comments.",
+        "createdAt": "2026-10-02T06:03:10.990Z"
+      }
+    ],
+    "createdAt": "2026-10-02T06:01:03.566Z",
+    "updatedAt": "2026-10-02T06:02:03.222Z"
+  }
+]

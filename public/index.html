@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f6fa">
+    <title>Incident Desk</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="/" aria-label="Incident Desk home">
+          <span class="brand-mark" aria-hidden="true">ID</span>
+          <span>Incident<span class="brand-light">Desk</span></span>
+        </a>
+        <div class="nav-label">WORKSPACE</div>
+        <a class="nav-item nav-item-active" href="#incidents">
+          <span class="nav-icon" aria-hidden="true">▦</span> Incidents
+        </a>
+        <div class="sidebar-note">
+          <span class="note-indicator" aria-hidden="true"></span>
+          <span>Local workspace<br><span class="muted">Data stays on this machine</span></span>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="breadcrumbs">Workspace <span>/</span> Incidents</div>
+          <a class="health-link" href="/api/health" target="_blank" rel="noreferrer">
+            <span class="health-dot" aria-hidden="true"></span> Service healthy
+          </a>
+        </header>
+
+        <section class="page-heading">
+          <div>
+            <p class="eyebrow">OPERATIONS</p>
+            <h1>Incident overview</h1>
+            <p class="page-subtitle">Track, manage, and resolve service disruptions.</p>
+          </div>
+          <a class="primary-button" href="#create-incident"><span aria-hidden="true">＋</span> New incident</a>
+        </section>
+
+        <section class="metrics" aria-label="Incident summary">
+          <article class="metric-card">
+            <span class="metric-label">Total incidents</span>
+            <strong id="total-count" class="metric-value">—</strong>
+            <span class="metric-caption">All reported incidents</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Open</span>
+            <strong id="open-count" class="metric-value">—</strong>
+            <span class="metric-caption"><span class="status-dot open-dot"></span> Awaiting investigation</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Investigating</span>
+            <strong id="investigating-count" class="metric-value">—</strong>
+            <span class="metric-caption"><span class="status-dot investigating-dot"></span> Work in progress</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Resolved</span>
+            <strong id="resolved-count" class="metric-value">—</strong>
+            <span class="metric-caption"><span class="status-dot resolved-dot"></span> Successfully resolved</span>
+          </article>
+        </section>
+
+        <section class="workspace-grid">
+          <section id="incidents" class="incidents-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>All incidents</h2>
+                <p class="panel-subtitle"><span id="visible-count">0</span> incidents shown</p>
+              </div>
+              <button id="refresh-button" class="icon-button" type="button" aria-label="Refresh incidents" title="Refresh">↻</button>
+            </div>
+            <div class="filters" role="search">
+              <label class="search-box">
+                <span aria-hidden="true">⌕</span>
+                <span class="visually-hidden">Search by title</span>
+                <input id="search-input" type="search" placeholder="Search incidents..." autocomplete="off">
+              </label>
+              <label class="filter-select">
+                <span class="visually-hidden">Filter by severity</span>
+                <select id="severity-filter">
+                  <option value="">All severities</option>
+                  <option>Critical</option>
+                  <option>High</option>
+                  <option>Medium</option>
+                  <option>Low</option>
+                </select>
+              </label>
+              <label class="filter-select">
+                <span class="visually-hidden">Filter by status</span>
+                <select id="status-filter">
+                  <option value="">All statuses</option>
+                  <option>Open</option>
+                  <option>Investigating</option>
+                  <option>Resolved</option>
+                </select>
+              </label>
+            </div>
+            <div id="message" class="message" role="status" aria-live="polite" hidden></div>
+            <div id="incident-list" class="incident-list" aria-live="polite"></div>
+          </section>
+
+          <aside id="create-incident" class="create-panel">
+            <div class="create-heading">
+              <span class="create-icon" aria-hidden="true">＋</span>
+              <div><h2>Report an incident</h2><p class="panel-subtitle">Add a new service disruption.</p></div>
+            </div>
+            <form id="incident-form">
+              <label for="title">Title <span class="required">*</span></label>
+              <input id="title" name="title" type="text" maxlength="160" placeholder="e.g. API response times elevated" required>
+
+              <label for="description">Description</label>
+              <textarea id="description" name="description" rows="4" maxlength="5000" placeholder="What is happening? Include any useful details."></textarea>
+
+              <div class="form-row">
+                <div>
+                  <label for="severity">Severity <span class="required">*</span></label>
+                  <select id="severity" name="severity" required>
+                    <option value="" disabled selected>Select severity</option>
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                    <option>Critical</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="owner">Owner <span class="required">*</span></label>
+                  <input id="owner" name="owner" type="text" maxlength="100" placeholder="Name or team" required>
+                </div>
+              </div>
+              <button id="submit-button" class="submit-button" type="submit">Create incident <span aria-hidden="true">→</span></button>
+              <p class="form-footnote"><span aria-hidden="true">⌁</span> New incidents start with Open status.</p>
+            </form>
+          </aside>
+        </section>
+
+        <footer class="page-footer">Incident Desk <span>·</span> Simple service operations</footer>
+      </main>
+    </div>
+  </body>
+</html>
