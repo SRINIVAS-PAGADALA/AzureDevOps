@@ -42,3 +42,5 @@ The server listens on `0.0.0.0` by default. Set `PORT` to change the port, for e
 - `GET /api/health` — health check.
 
 All API request and response bodies use JSON. The server uses Node.js built-in modules and has no package dependencies.
+
+Git workflow test completed.
