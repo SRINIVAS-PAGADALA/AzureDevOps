@@ -12,6 +12,8 @@ spec:
       labels:
         app: incident-app
     spec:
+      securityContext:
+        fsGroup: 1000
       containers:
         - name: incident-app
           image: incidentplatformacr.azurecr.io/incident-service-management:1.0
